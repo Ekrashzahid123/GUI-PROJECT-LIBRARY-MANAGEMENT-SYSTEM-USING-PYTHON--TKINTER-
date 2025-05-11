@@ -5,14 +5,21 @@ from book_library import Book, EBook, Library, BookNotAvailableError
 library = Library()
 
 root  = tk.Tk()
-root.title("Library Management System")
+root.title("Library Management S")
 root.geometry("600x600")
 
 # ====================== Function Definitions ======================
 
 def validate_numeric_input(new_value):
-    """Allow only numeric input for download size."""
-    return new_value == "" or new_value.isdigit()
+    if new_value == "":
+        return True
+    try:
+        float(new_value)
+        return True
+    except ValueError:
+        return False
+
+    
 
 def add_book():
     title = title_entry.get()
@@ -103,7 +110,7 @@ tk.Label(root, text="ISBN:").pack()
 isbn_entry = tk.Entry(root)
 isbn_entry.pack()
 
-# eBook checkbox with inline logic
+
 ebook_var = tk.BooleanVar()
 
 def ebook_checkbox_changed():
