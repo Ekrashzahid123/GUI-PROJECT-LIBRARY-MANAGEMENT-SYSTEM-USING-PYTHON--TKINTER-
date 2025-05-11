@@ -56,3 +56,4 @@ class EBook(Book):
 
     def __str__(self):
         return f"{self.title} by {self.author} (eBook, {self.download_size}MB)"
+    
